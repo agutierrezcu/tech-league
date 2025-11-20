@@ -1,0 +1,35 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+namespace Infrastructure.Entities.Configurations;
+
+internal sealed class CoachEntityTypeConfiguration : IEntityTypeConfiguration<Coach>
+{
+    public void Configure(EntityTypeBuilder<Coach> builder)
+    {
+        builder.ToTable(builder =>
+        {
+            builder.HasCheckConstraint(
+                "CK_Min_Experience",
+                sql: $"{nameof(Coach.Experience)} > {Coach.MinExperience}");
+        });
+
+        builder.HasKey(t => t.Id);
+
+        builder.Property(t => t.FullName)
+            .HasMaxLength(50)
+            .HasColumnType("nvarchar(50)")
+            .IsRequired();
+
+        builder.Property(t => t.Experience)
+            .IsRequired(true);
+
+        builder.HasIndex(t => t.FullName)
+            .IsUnique(false);
+
+        builder.Ignore(t => t.IsAvailable);
+
+        builder.Navigation(t => t.CurrentContract)
+            .UsePropertyAccessMode(PropertyAccessMode.Property);
+    }
+}

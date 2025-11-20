@@ -1,0 +1,3 @@
+﻿using SharedKernel;
+
+[assembly: TechLeagueDiscoverableAssembly()]
