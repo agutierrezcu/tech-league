@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <ItemGroup>
+        <AdditionalFiles Include="DDD\guid-version7.typedid"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\SharedKernel\SharedKernel.csproj"/>
+    </ItemGroup>
+
+</Project>

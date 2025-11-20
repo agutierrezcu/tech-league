@@ -1,0 +1,1992 @@
+{
+	"info": {
+		"_postman_id": "9883fc9f-f3be-42c8-8ebf-82f303b7d6aa",
+		"name": "TechLeagueApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34796633"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "players",
+					"item": [
+						{
+							"name": "AddPlayer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var location = pm.response.headers.get('Location');\r",
+											"\r",
+											"if (location && location.trim() !== \"\") {\r",
+											"    var regex = /([^\\/]+)$/;\r",
+											"    var result = location.match(regex);\r",
+											"    pm.collectionVariables.set('playerId', result[0]);\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/problem+json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"fullName\": \"{{$randomFullName}}\",\n  \"nickName\" : \"{{$randomFirstName}}\",\n  \"birthDate\" : \"1982-12-12\"\n}\n",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/players",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"players"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "No Content",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"FullName\": \"<string>\",\n  \"NickName\": \"<string>\",\n  \"BirthDate\": \"<date>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/players",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"players"
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/problem+json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"FullName\": \"<string>\",\n  \"NickName\": \"<string>\",\n  \"BirthDate\": \"<date>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/players",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"players"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/problem+json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Type\": \"https://www.rfc-editor.org/rfc/rfc7231#section-6.5.1\",\n  \"Title\": \"One or more validation errors occurred.\",\n  \"Status\": 400,\n  \"Instance\": \"/api/route\",\n  \"TraceId\": \"0HMPNHL0JHL76:00000001\",\n  \"Detail\": \"<string>\",\n  \"Errors\": [\n    {\n      \"Name\": \"Error or field name\",\n      \"Reason\": \"Error reason\",\n      \"Code\": \"<string>\",\n      \"Severity\": \"<string>\"\n    },\n    {\n      \"Name\": \"Error or field name\",\n      \"Reason\": \"Error reason\",\n      \"Code\": \"<string>\",\n      \"Severity\": \"<string>\"\n    }\n  ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "coaches",
+					"item": [
+						{
+							"name": "AddCoach",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var location = pm.response.headers.get('Location');\r",
+											"\r",
+											"if (location && location.trim() !== \"\") {\r",
+											"    var regex = /([^\\/]+)$/;\r",
+											"    var result = location.match(regex);\r",
+											"    pm.collectionVariables.set('coachId', result[0]);\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/problem+json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"fullName\": \"{{$randomFullName}}\",\n  \"experience\": \"{{$randomInt}}\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/coaches",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"coaches"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "No Content",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"FullName\": \"<string>\",\n  \"Experience\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/coaches",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"coaches"
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/problem+json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"FullName\": \"<string>\",\n  \"Experience\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/coaches",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"coaches"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/problem+json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Type\": \"https://www.rfc-editor.org/rfc/rfc7231#section-6.5.1\",\n  \"Title\": \"One or more validation errors occurred.\",\n  \"Status\": 400,\n  \"Instance\": \"/api/route\",\n  \"TraceId\": \"0HMPNHL0JHL76:00000001\",\n  \"Detail\": \"<string>\",\n  \"Errors\": [\n    {\n      \"Name\": \"Error or field name\",\n      \"Reason\": \"Error reason\",\n      \"Code\": \"<string>\",\n      \"Severity\": \"<string>\"\n    },\n    {\n      \"Name\": \"Error or field name\",\n      \"Reason\": \"Error reason\",\n      \"Code\": \"<string>\",\n      \"Severity\": \"<string>\"\n    }\n  ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "clubs",
+					"item": [
+						{
+							"name": "{clubId}",
+							"item": [
+								{
+									"name": "budget",
+									"item": [
+										{
+											"name": "UpdateBudget",
+											"request": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/problem+json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"newValue\": 2000000// greater than 999999\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/clubs/:clubId/budget",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clubs",
+														":clubId",
+														"budget"
+													],
+													"variable": [
+														{
+															"key": "clubId",
+															"value": "{{clubId}}",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "No Content",
+													"originalRequest": {
+														"method": "PATCH",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"newValue\": \"<number>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/clubs/:clubId/budget",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"clubs",
+																":clubId",
+																"budget"
+															],
+															"variable": [
+																{
+																	"key": "clubId"
+																}
+															]
+														}
+													},
+													"status": "No Content",
+													"code": 204,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Bad Request",
+													"originalRequest": {
+														"method": "PATCH",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"newValue\": \"<number>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/clubs/:clubId/budget",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"clubs",
+																":clubId",
+																"budget"
+															],
+															"variable": [
+																{
+																	"key": "clubId"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"Type\": \"https://www.rfc-editor.org/rfc/rfc7231#section-6.5.1\",\n  \"Title\": \"One or more validation errors occurred.\",\n  \"Status\": 400,\n  \"Instance\": \"/api/route\",\n  \"TraceId\": \"0HMPNHL0JHL76:00000001\",\n  \"Detail\": \"<string>\",\n  \"Errors\": [\n    {\n      \"Name\": \"Error or field name\",\n      \"Reason\": \"Error reason\",\n      \"Code\": \"<string>\",\n      \"Severity\": \"<string>\"\n    },\n    {\n      \"Name\": \"Error or field name\",\n      \"Reason\": \"Error reason\",\n      \"Code\": \"<string>\",\n      \"Severity\": \"<string>\"\n    }\n  ]\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "players",
+									"item": [
+										{
+											"name": "SignUpPlayer",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"playerId\": \"{{playerId}}\",\n  \"contractDuration\":{\n    \"start\": \"2026-01-06T00:00:00Z\",\n    \"end\": \"2027-06-30T00:00:00Z\"\n  },\n  \"anualSalary\": 1500000 //\"{{$randomInt}}\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/clubs/:clubId/players",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clubs",
+														":clubId",
+														"players"
+													],
+													"variable": [
+														{
+															"key": "clubId",
+															"value": "{{clubId}}",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "No Content",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"PlayerId\": \"<string>\",\n  \"StartDate\": \"<dateTime>\",\n  \"EndDate\": \"<dateTime>\",\n  \"AnualSalary\": \"<number>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/clubs/:clubId/players",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"clubs",
+																":clubId",
+																"players"
+															],
+															"variable": [
+																{
+																	"key": "clubId"
+																}
+															]
+														}
+													},
+													"status": "No Content",
+													"code": 204,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										},
+										{
+											"name": "ReleasePlayer",
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/problem+json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/clubs/:clubId/players/:playerId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clubs",
+														":clubId",
+														"players",
+														":playerId"
+													],
+													"variable": [
+														{
+															"key": "clubId",
+															"value": "{{clubId}}",
+															"description": "(Required) "
+														},
+														{
+															"key": "playerId",
+															"value": "{{playerId}}",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "No Content",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/clubs/:clubId/players/:playerId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"clubs",
+																":clubId",
+																"players",
+																":playerId"
+															],
+															"variable": [
+																{
+																	"key": "clubId"
+																},
+																{
+																	"key": "playerId"
+																}
+															]
+														}
+													},
+													"status": "No Content",
+													"code": 204,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Bad Request",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/clubs/:clubId/players/:playerId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"clubs",
+																":clubId",
+																"players",
+																":playerId"
+															],
+															"variable": [
+																{
+																	"key": "clubId"
+																},
+																{
+																	"key": "playerId"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"Type\": \"https://www.rfc-editor.org/rfc/rfc7231#section-6.5.1\",\n  \"Title\": \"One or more validation errors occurred.\",\n  \"Status\": 400,\n  \"Instance\": \"/api/route\",\n  \"TraceId\": \"0HMPNHL0JHL76:00000001\",\n  \"Detail\": \"<string>\",\n  \"Errors\": [\n    {\n      \"Name\": \"Error or field name\",\n      \"Reason\": \"Error reason\",\n      \"Code\": \"<string>\",\n      \"Severity\": \"<string>\"\n    },\n    {\n      \"Name\": \"Error or field name\",\n      \"Reason\": \"Error reason\",\n      \"Code\": \"<string>\",\n      \"Severity\": \"<string>\"\n    }\n  ]\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "coaches",
+									"item": [
+										{
+											"name": "HireCoach",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"coachId\": \"{{coachId}}\",\n  \"contractDuration\":{\n    \"start\": \"2026-01-06T00:00:00Z\",\n    \"end\": \"2028-06-30T00:00:00Z\"\n  },\n  \"anualSalary\": 1500\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/clubs/:clubId/coaches",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clubs",
+														":clubId",
+														"coaches"
+													],
+													"variable": [
+														{
+															"key": "clubId",
+															"value": "{{clubId}}",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "No Content",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"CoachId\": \"<string>\",\n  \"StartDate\": \"<dateTime>\",\n  \"EndDate\": \"<dateTime>\",\n  \"AnualSalary\": \"<number>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/clubs/:clubId/coaches",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"clubs",
+																":clubId",
+																"coaches"
+															],
+															"variable": [
+																{
+																	"key": "clubId"
+																}
+															]
+														}
+													},
+													"status": "No Content",
+													"code": 204,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										},
+										{
+											"name": "DismissCoach",
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/problem+json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/clubs/:clubId/coaches/:coachId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clubs",
+														":clubId",
+														"coaches",
+														":coachId"
+													],
+													"variable": [
+														{
+															"key": "clubId",
+															"value": "{{clubId}}",
+															"description": "(Required) "
+														},
+														{
+															"key": "coachId",
+															"value": "{{coachId}}",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "No Content",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/clubs/:clubId/coaches/:coachId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"clubs",
+																":clubId",
+																"coaches",
+																":coachId"
+															],
+															"variable": [
+																{
+																	"key": "clubId"
+																},
+																{
+																	"key": "coachId"
+																}
+															]
+														}
+													},
+													"status": "No Content",
+													"code": 204,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Bad Request",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/clubs/:clubId/coaches/:coachId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"clubs",
+																":clubId",
+																"coaches",
+																":coachId"
+															],
+															"variable": [
+																{
+																	"key": "clubId"
+																},
+																{
+																	"key": "coachId"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"Type\": \"https://www.rfc-editor.org/rfc/rfc7231#section-6.5.1\",\n  \"Title\": \"One or more validation errors occurred.\",\n  \"Status\": 400,\n  \"Instance\": \"/api/route\",\n  \"TraceId\": \"0HMPNHL0JHL76:00000001\",\n  \"Detail\": \"<string>\",\n  \"Errors\": [\n    {\n      \"Name\": \"Error or field name\",\n      \"Reason\": \"Error reason\",\n      \"Code\": \"<string>\",\n      \"Severity\": \"<string>\"\n    },\n    {\n      \"Name\": \"Error or field name\",\n      \"Reason\": \"Error reason\",\n      \"Code\": \"<string>\",\n      \"Severity\": \"<string>\"\n    }\n  ]\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "GetClub",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/clubs/:clubId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clubs",
+												":clubId"
+											],
+											"variable": [
+												{
+													"key": "clubId",
+													"value": "{{clubId}}",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/clubs/:clubId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clubs",
+														":clubId"
+													],
+													"variable": [
+														{
+															"key": "clubId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"Name\": \"<string>\",\n  \"ThreeLettersName\": \"<string>\",\n  \"AnualBudget\": \"<number>\"\n}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/problem+json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/clubs/:clubId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clubs",
+														":clubId"
+													],
+													"variable": [
+														{
+															"key": "clubId"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/problem+json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"Type\": \"https://www.rfc-editor.org/rfc/rfc7231#section-6.5.1\",\n  \"Title\": \"One or more validation errors occurred.\",\n  \"Status\": 400,\n  \"Instance\": \"/api/route\",\n  \"TraceId\": \"0HMPNHL0JHL76:00000001\",\n  \"Detail\": \"<string>\",\n  \"Errors\": [\n    {\n      \"Name\": \"Error or field name\",\n      \"Reason\": \"Error reason\",\n      \"Code\": \"<string>\",\n      \"Severity\": \"<string>\"\n    },\n    {\n      \"Name\": \"Error or field name\",\n      \"Reason\": \"Error reason\",\n      \"Code\": \"<string>\",\n      \"Severity\": \"<string>\"\n    }\n  ]\n}"
+										}
+									]
+								},
+								{
+									"name": "GetPlayers",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/clubs/:clubId/players?filterByName=l&pageSize=2&page=1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clubs",
+												":clubId",
+												"players"
+											],
+											"query": [
+												{
+													"key": "filterByName",
+													"value": "l",
+													"description": "(Required) "
+												},
+												{
+													"key": "pageSize",
+													"value": "2"
+												},
+												{
+													"key": "page",
+													"value": "1",
+													"description": "(Required) "
+												}
+											],
+											"variable": [
+												{
+													"key": "clubId",
+													"value": "{{clubId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/clubs/:clubId/players?FilterByName=<string>&PageSize=10&page=<integer>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clubs",
+														":clubId",
+														"players"
+													],
+													"query": [
+														{
+															"key": "FilterByName",
+															"value": "<string>",
+															"description": "(Required) "
+														},
+														{
+															"key": "PageSize",
+															"value": "10"
+														},
+														{
+															"key": "page",
+															"value": "<integer>",
+															"description": "(Required) "
+														}
+													],
+													"variable": [
+														{
+															"key": "clubId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"FullName\": \"<string>\",\n    \"NickName\": \"<string>\",\n    \"BirthDate\": \"<date>\"\n  },\n  {\n    \"FullName\": \"<string>\",\n    \"NickName\": \"<string>\",\n    \"BirthDate\": \"<date>\"\n  }\n]"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/problem+json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/clubs/:clubId/players?FilterByName=<string>&PageSize=10&page=<integer>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clubs",
+														":clubId",
+														"players"
+													],
+													"query": [
+														{
+															"key": "FilterByName",
+															"value": "<string>",
+															"description": "(Required) "
+														},
+														{
+															"key": "PageSize",
+															"value": "10"
+														},
+														{
+															"key": "page",
+															"value": "<integer>",
+															"description": "(Required) "
+														}
+													],
+													"variable": [
+														{
+															"key": "clubId"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/problem+json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"Type\": \"https://www.rfc-editor.org/rfc/rfc7231#section-6.5.1\",\n  \"Title\": \"One or more validation errors occurred.\",\n  \"Status\": 400,\n  \"Instance\": \"/api/route\",\n  \"TraceId\": \"0HMPNHL0JHL76:00000001\",\n  \"Detail\": \"<string>\",\n  \"Errors\": [\n    {\n      \"Name\": \"Error or field name\",\n      \"Reason\": \"Error reason\",\n      \"Code\": \"<string>\",\n      \"Severity\": \"<string>\"\n    },\n    {\n      \"Name\": \"Error or field name\",\n      \"Reason\": \"Error reason\",\n      \"Code\": \"<string>\",\n      \"Severity\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "GetPlayers",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/clubs/:clubId/players?filterByName=&pageSize=2&page=1",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clubs",
+														":clubId",
+														"players"
+													],
+													"query": [
+														{
+															"key": "filterByName",
+															"value": "",
+															"description": "(Required) "
+														},
+														{
+															"key": "pageSize",
+															"value": "2"
+														},
+														{
+															"key": "page",
+															"value": "1",
+															"description": "(Required) "
+														}
+													],
+													"variable": [
+														{
+															"key": "clubId",
+															"value": "{{clubId}}",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "plain",
+											"header": [
+												{
+													"key": "Content-Length",
+													"value": "0"
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 24 Nov 2025 19:57:35 GMT"
+												},
+												{
+													"key": "Server",
+													"value": "Kestrel"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "DENY"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "strict-origin-when-cross-origin"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "object-src 'none'; form-action 'self'; frame-ancestors 'none'"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Embedder-Policy",
+													"value": "credentialless"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-site"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												}
+											],
+											"cookie": [],
+											"body": null
+										}
+									]
+								},
+								{
+									"name": "GetFinanceStatus",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/clubs/:clubId/finance-status",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clubs",
+												":clubId",
+												"finance-status"
+											],
+											"variable": [
+												{
+													"key": "clubId",
+													"value": "{{clubId}}",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/clubs/:clubId/players?FilterByName=<string>&PageSize=10&page=<integer>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clubs",
+														":clubId",
+														"players"
+													],
+													"query": [
+														{
+															"key": "FilterByName",
+															"value": "<string>",
+															"description": "(Required) "
+														},
+														{
+															"key": "PageSize",
+															"value": "10"
+														},
+														{
+															"key": "page",
+															"value": "<integer>",
+															"description": "(Required) "
+														}
+													],
+													"variable": [
+														{
+															"key": "clubId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"FullName\": \"<string>\",\n    \"NickName\": \"<string>\",\n    \"BirthDate\": \"<date>\"\n  },\n  {\n    \"FullName\": \"<string>\",\n    \"NickName\": \"<string>\",\n    \"BirthDate\": \"<date>\"\n  }\n]"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/problem+json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/clubs/:clubId/players?FilterByName=<string>&PageSize=10&page=<integer>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clubs",
+														":clubId",
+														"players"
+													],
+													"query": [
+														{
+															"key": "FilterByName",
+															"value": "<string>",
+															"description": "(Required) "
+														},
+														{
+															"key": "PageSize",
+															"value": "10"
+														},
+														{
+															"key": "page",
+															"value": "<integer>",
+															"description": "(Required) "
+														}
+													],
+													"variable": [
+														{
+															"key": "clubId"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/problem+json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"Type\": \"https://www.rfc-editor.org/rfc/rfc7231#section-6.5.1\",\n  \"Title\": \"One or more validation errors occurred.\",\n  \"Status\": 400,\n  \"Instance\": \"/api/route\",\n  \"TraceId\": \"0HMPNHL0JHL76:00000001\",\n  \"Detail\": \"<string>\",\n  \"Errors\": [\n    {\n      \"Name\": \"Error or field name\",\n      \"Reason\": \"Error reason\",\n      \"Code\": \"<string>\",\n      \"Severity\": \"<string>\"\n    },\n    {\n      \"Name\": \"Error or field name\",\n      \"Reason\": \"Error reason\",\n      \"Code\": \"<string>\",\n      \"Severity\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "GetPlayers",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/clubs/:clubId/players?filterByName=&pageSize=2&page=1",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clubs",
+														":clubId",
+														"players"
+													],
+													"query": [
+														{
+															"key": "filterByName",
+															"value": "",
+															"description": "(Required) "
+														},
+														{
+															"key": "pageSize",
+															"value": "2"
+														},
+														{
+															"key": "page",
+															"value": "1",
+															"description": "(Required) "
+														}
+													],
+													"variable": [
+														{
+															"key": "clubId",
+															"value": "{{clubId}}",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "plain",
+											"header": [
+												{
+													"key": "Content-Length",
+													"value": "0"
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 24 Nov 2025 19:57:35 GMT"
+												},
+												{
+													"key": "Server",
+													"value": "Kestrel"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "DENY"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "strict-origin-when-cross-origin"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "object-src 'none'; form-action 'self'; frame-ancestors 'none'"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Embedder-Policy",
+													"value": "credentialless"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-site"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												}
+											],
+											"cookie": [],
+											"body": null
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "AddClub",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var location = pm.response.headers.get('Location');\r",
+											"\r",
+											"if (location && location.trim() !== \"\") {\r",
+											"    var regex = /([^\\/]+)$/;\r",
+											"    var result = location.match(regex);\r",
+											"    pm.collectionVariables.set('clubId', result[0]);\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/problem+json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"Name\": \"{{$randomFullName}}\",\n  \"ThreeLettersName\": \"{{$randomAbbreviation}}\",\n  \"AnualBudget\": \"5000000\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/clubs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"clubs"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "No Content",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"Name\": \"<string>\",\n  \"ThreeLettersName\": \"<string>\",\n  \"AnualBudget\": \"<number>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/clubs",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clubs"
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/problem+json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"Name\": \"<string>\",\n  \"ThreeLettersName\": \"<string>\",\n  \"AnualBudget\": \"<number>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/clubs",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clubs"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/problem+json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Type\": \"https://www.rfc-editor.org/rfc/rfc7231#section-6.5.1\",\n  \"Title\": \"One or more validation errors occurred.\",\n  \"Status\": 400,\n  \"Instance\": \"/api/route\",\n  \"TraceId\": \"0HMPNHL0JHL76:00000001\",\n  \"Detail\": \"<string>\",\n  \"Errors\": [\n    {\n      \"Name\": \"Error or field name\",\n      \"Reason\": \"Error reason\",\n      \"Code\": \"<string>\",\n      \"Severity\": \"<string>\"\n    },\n    {\n      \"Name\": \"Error or field name\",\n      \"Reason\": \"Error reason\",\n      \"Code\": \"<string>\",\n      \"Severity\": \"<string>\"\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "GetFinanceStatus",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/clubs/finance-status",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"clubs",
+										"finance-status"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/clubs/:clubId/players?FilterByName=<string>&PageSize=10&page=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clubs",
+												":clubId",
+												"players"
+											],
+											"query": [
+												{
+													"key": "FilterByName",
+													"value": "<string>",
+													"description": "(Required) "
+												},
+												{
+													"key": "PageSize",
+													"value": "10"
+												},
+												{
+													"key": "page",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											],
+											"variable": [
+												{
+													"key": "clubId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"FullName\": \"<string>\",\n    \"NickName\": \"<string>\",\n    \"BirthDate\": \"<date>\"\n  },\n  {\n    \"FullName\": \"<string>\",\n    \"NickName\": \"<string>\",\n    \"BirthDate\": \"<date>\"\n  }\n]"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/problem+json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/clubs/:clubId/players?FilterByName=<string>&PageSize=10&page=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clubs",
+												":clubId",
+												"players"
+											],
+											"query": [
+												{
+													"key": "FilterByName",
+													"value": "<string>",
+													"description": "(Required) "
+												},
+												{
+													"key": "PageSize",
+													"value": "10"
+												},
+												{
+													"key": "page",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											],
+											"variable": [
+												{
+													"key": "clubId"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/problem+json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Type\": \"https://www.rfc-editor.org/rfc/rfc7231#section-6.5.1\",\n  \"Title\": \"One or more validation errors occurred.\",\n  \"Status\": 400,\n  \"Instance\": \"/api/route\",\n  \"TraceId\": \"0HMPNHL0JHL76:00000001\",\n  \"Detail\": \"<string>\",\n  \"Errors\": [\n    {\n      \"Name\": \"Error or field name\",\n      \"Reason\": \"Error reason\",\n      \"Code\": \"<string>\",\n      \"Severity\": \"<string>\"\n    },\n    {\n      \"Name\": \"Error or field name\",\n      \"Reason\": \"Error reason\",\n      \"Code\": \"<string>\",\n      \"Severity\": \"<string>\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "GetPlayers",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/clubs/:clubId/players?filterByName=&pageSize=2&page=1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clubs",
+												":clubId",
+												"players"
+											],
+											"query": [
+												{
+													"key": "filterByName",
+													"value": "",
+													"description": "(Required) "
+												},
+												{
+													"key": "pageSize",
+													"value": "2"
+												},
+												{
+													"key": "page",
+													"value": "1",
+													"description": "(Required) "
+												}
+											],
+											"variable": [
+												{
+													"key": "clubId",
+													"value": "{{clubId}}",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Content-Length",
+											"value": "0"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 24 Nov 2025 19:57:35 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Kestrel"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "object-src 'none'; form-action 'self'; frame-ancestors 'none'"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Embedder-Policy",
+											"value": "credentialless"
+										},
+										{
+											"key": "Cross-Origin-Resource-Policy",
+											"value": "same-site"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										}
+									],
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/health",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5000"
+		},
+		{
+			"key": "clubId",
+			"value": ""
+		},
+		{
+			"key": "playerId",
+			"value": ""
+		},
+		{
+			"key": "coachId",
+			"value": ""
+		}
+	]
+}
