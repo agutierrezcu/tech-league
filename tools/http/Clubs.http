@@ -1,0 +1,87 @@
+@server = https://localhost:7288/api
+@clubId = 019aff5e-d9e0-74a4-8fa3-28eca230aa31
+
+// Add Club
+POST {{server}}/clubs
+Content-Type: application/json
+Accept-Language: en-US,en;q=0.5
+
+{
+  "name": "club",
+  "threeLettersName": "ilb",
+  "anualBudget": 50000008
+}
+
+
+###
+
+// GetClub
+GET {{server}}/clubs/{{clubId}}
+Content-Type: application/json
+Accept-Language: en-US,en;q=0.5
+
+
+###
+
+// Get players by club 
+GET {{server}}/clubs/{{clubId}}/players?filterByName=&page=2&pageSize=2
+Content-Type: application/json
+Accept-Language: en-US,en;q=0.5
+
+
+###
+
+// SignUp free agent
+POST {{server}}/clubs/{{clubId}}/players
+Content-Type: application/json
+Accept-Language: en-US,en;q=0.5
+
+{
+  "playerId": "019aac54-489e-70c4-a787-97bf15d9340d",
+  "startDate": "2026-01-06T00:00:00Z",
+  "endDate": "2027-06-30T00:00:00Z",
+  "anualSalary": 234
+}
+
+###
+
+// Hire Coach
+POST {{server}}/clubs/{{clubId}}/coaches
+Content-Type: application/json
+Accept-Language: en-US,en;q=0.5
+
+{
+  "coachId": "019aaae7-3cda-7044-846b-bd06e0745adb",
+  "startDate": "2026-01-06T00:00:00Z",
+  "endDate": "2027-06-30T00:00:00Z",
+  "anualSalary": 234
+}
+
+###
+
+// Release Player
+DELETE {{server}}/clubs/{{clubId}}/players/019aaae7-3cb3-7497-a71c-a85ef78770e5
+Content-Type: application/json
+Accept-Language: en-US,en;q=0.5
+
+###
+
+
+// Dismiss Coach
+DELETE {{server}}/clubs/{{clubId}}/coaches/019aaae7-3cda-7044-846b-bd06e0745adb
+Content-Type: application/json
+Accept-Language: en-US,en;q=0.5
+
+###
+
+ // Update Budget
+PATCH {{server}}/clubs/{{clubId}}/budget
+Content-Type: application/json
+Accept-Language: en-US,en;q=0.5
+
+{
+  "newValue": "5000"
+}
+
+
+###
